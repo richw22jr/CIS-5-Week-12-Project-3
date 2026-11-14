@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 
-// Project 3 — Your Name
+// Project 3 — Richard Webster
 // CIS 5 Week 12 · Fifty students
 // Do not edit the boilerplate. It randomly generates 50 scores.
 // Do not type scores or names into this file.
@@ -13,7 +13,7 @@ void countGrades(const int scores[], int n, int& a, int& b, int& c, int& d, int&
   c = 0;
   d = 0;
   failing = 0;
-  std::cout << &a << " " << &b << " " << &c << " " << &d << " " << &failing << "\n";
+  //std::cout << &a << " " << &b << " " << &c << " " << &d << " " << &failing << "\n";
   if (n <= 0 || scores == nullptr) return;
   // TODO: for loop. Add 1 to the matching count.
   for (int i = 0; i < n; ++i) {
@@ -23,8 +23,7 @@ void countGrades(const int scores[], int n, int& a, int& b, int& c, int& d, int&
     else if (scores[i] >= 60 && scores[i] <= 69) {++d;}
     else if (scores[i] <= 59) {++failing;}
   }
-  // A is 90 and up. B is 80 to 89. C is 70 to 79. D is 60 to 69.
-  // Failing is below 60. A 60 is a D. Do not print.
+
 }
 
 double average(const int scores[], int n) {
@@ -43,7 +42,7 @@ double average(const int scores[], int n) {
 void officeHours(const int scores[], int n, int* failingCount) {
   if (failingCount != nullptr) *failingCount = 0;
   if (n <= 0 || scores == nullptr) return;
-  std::cout << &failingCount << " " << *failingCount << "\n";
+  //std::cout << &failingCount << " " << *failingCount << "\n";
   int i = 0;
   while (i < n) {
     if (scores[i] < 60 && failingCount != nullptr) {
@@ -78,7 +77,7 @@ int main() {
   int d = 0;
   int failing = 0;
   countGrades(scores, N, a, b, c, d, failing);
-  std::cout << &a << " " << &b << " " << &c << " " << &d << " " << &failing << "\n";
+  //std::cout << &a << " " << &b << " " << &c << " " << &d << " " << &failing << "\n";
   std::cout << "A: " << a << "\n";
   std::cout << "B: " << b << "\n";
   std::cout << "C: " << c << "\n";
@@ -88,9 +87,10 @@ int main() {
   
 
   int lines = 0;
-  std::cout << &lines << "\n";
+  //std::cout << &lines << "\n";
   officeHours(scores, N, &lines);
-  std::cout << "Office hours: " << &lines << "\n";
+  std::cout << "Office hours: " << lines<< "\n";
+  std::cout << &lines <<"\n";
 
   return 0;
 }
