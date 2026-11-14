@@ -13,9 +13,8 @@ void countGrades(const int scores[], int n, int& a, int& b, int& c, int& d, int&
   c = 0;
   d = 0;
   failing = 0;
-  //std::cout << &a << " " << &b << " " << &c << " " << &d << " " << &failing << "\n";
   if (n <= 0 || scores == nullptr) return;
-  // TODO: for loop. Add 1 to the matching count.
+  
   for (int i = 0; i < n; ++i) {
     if (scores[i] >= 90) {a++;}
     else if (scores[i] >= 80 && scores[i] <= 89) {++b;}
@@ -23,7 +22,6 @@ void countGrades(const int scores[], int n, int& a, int& b, int& c, int& d, int&
     else if (scores[i] >= 60 && scores[i] <= 69) {++d;}
     else if (scores[i] <= 59) {++failing;}
   }
-
 }
 
 double average(const int scores[], int n) {
@@ -34,27 +32,25 @@ double average(const int scores[], int n) {
   {
     sum += scores[i];
   }
-  // TODO: return the mean as a double (sum * 1.0 / n). Do not print.
   double avg = sum * 1.0 / n;
   return avg;
 }
 
 void officeHours(const int scores[], int n, int* failingCount) {
+  
   if (failingCount != nullptr) *failingCount = 0;
   if (n <= 0 || scores == nullptr) return;
-  //std::cout << &failingCount << " " << *failingCount << "\n";
+  
   int i = 0;
   while (i < n) {
-    if (scores[i] < 60 && failingCount != nullptr) {
+    if (scores[i] < 60) {
       std::cout << "Student at index [" << i << "] needs to come to office hours." << "\n";
-      ++*failingCount;
+      if (failingCount != nullptr) {
+        ++*failingCount;
+      } 
     }
     i++;
   }
-  // TODO: while loop. If scores[i] is under 60, print:
-  // Student at index i needs to come to office hours.
-  // If failingCount is not nullptr, write how many lines you printed
-  // through *failingCount. If it is nullptr, do not write through it.
 }
 
 int main() {
@@ -77,7 +73,6 @@ int main() {
   int d = 0;
   int failing = 0;
   countGrades(scores, N, a, b, c, d, failing);
-  //std::cout << &a << " " << &b << " " << &c << " " << &d << " " << &failing << "\n";
   std::cout << "A: " << a << "\n";
   std::cout << "B: " << b << "\n";
   std::cout << "C: " << c << "\n";
@@ -87,10 +82,8 @@ int main() {
   
 
   int lines = 0;
-  //std::cout << &lines << "\n";
   officeHours(scores, N, &lines);
   std::cout << "Office hours: " << lines<< "\n";
-  std::cout << &lines <<"\n";
 
   return 0;
 }

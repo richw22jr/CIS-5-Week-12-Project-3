@@ -58,6 +58,18 @@ Student at index i needs to come to office hours.
 6. `main` calls the three functions. The `Failing` count and `Office hours` are the same number.
 7. In the README, write a short explanation in your own words. Name the three functions. Say what the references change in `main`, what the pointer writes, what a `nullptr` skips, and why `average` returns a `double`. Under that paragraph, paste the run you actually got.
 
+7) The three functions in the program are:
+-countGrades
+-average
+-officeHours
+    The Main program calls the countGrades function and passes   the variables a, b, c, d, and failing by reference up to the function.  This allows the function to change the values of a, b, c, d, and failing directly in the main function without making a copy of them.
+
+    Pass by pointer is used in office hours.  The main function calls the function officeHours and passes the address of lines (&lines) up to a pointer called *failingCount.  *failingCount then points to the address of lines, and is able to change the value of lines in the function.  Whatever the value of *failingcount changes to, lines changes to.
+
+    nullptr is an invalid value in this program.  Passing nullptr to any of the functions would cause unpredictable behavior.  I actually did replace &lines with nullpointer to see what it would do, and it did what it was supposed to and did nothing.
+
+    The function average returns a double because we declared it as a type double.  You can also see in my code that I initialized sum to 0.0, and i declared double avg = sum * 1.0, so it returned the average in decimal form.  
+
 ## Sample shape
 This shows the shape of the report. Your fifty scores are random, so these numbers will not appear.
 
